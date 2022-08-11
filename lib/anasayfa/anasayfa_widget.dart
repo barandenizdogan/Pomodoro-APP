@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../ayarlar/ayarlar_widget.dart';
 import '../flutter_flow/flutter_flow_ad_banner.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -22,6 +24,72 @@ class AnasayfaWidget extends StatefulWidget {
 class _AnasayfaWidgetState extends State<AnasayfaWidget> {
   PageController? pageViewController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  Timer? countdownTimer;
+  Duration myDuration = Duration(minutes: 25);
+  Duration myDuration5 = Duration(minutes: 5);
+  Duration myDuration30 = Duration(minutes: 30);
+
+
+  void startTimer() {
+    countdownTimer =
+        Timer.periodic(Duration(seconds: 1), (_) => setCountDown());
+  }
+  void startTimer5() {
+    countdownTimer =
+        Timer.periodic(Duration(seconds: 1), (_) => setCountDown5());
+  }
+  void startTimer30() {
+    countdownTimer =
+        Timer.periodic(Duration(seconds: 1), (_) => setCountDown30());
+  }
+  void resetTimer() {
+    stopTimer();
+    setState(() => myDuration = Duration(minutes: 25));
+  }
+  void resetTimer5() {
+    stopTimer();
+    setState(() => myDuration5 = Duration(minutes: 5));
+  }
+  void resetTimer30() {
+    stopTimer();
+    setState(() => myDuration30 = Duration(minutes: 30));
+  }
+  void setCountDown() {
+    final reduceSecondsBy = 1;
+    setState(() {
+      final seconds = myDuration.inSeconds - reduceSecondsBy;
+      if (seconds < 0) {
+        countdownTimer!.cancel();
+      } else {
+        myDuration = Duration(seconds: seconds);
+      }
+    });
+  }
+  void setCountDown5() {
+    final reduceSecondsBy = 1;
+    setState(() {
+      final seconds = myDuration5.inSeconds - reduceSecondsBy;
+      if (seconds < 0) {
+        countdownTimer!.cancel();
+      } else {
+        myDuration5 = Duration(seconds: seconds);
+      }
+    });
+  }
+  void setCountDown30() {
+    final reduceSecondsBy = 1;
+    setState(() {
+      final seconds = myDuration30.inSeconds - reduceSecondsBy;
+      if (seconds < 0) {
+        countdownTimer!.cancel();
+      } else {
+        myDuration30 = Duration(seconds: seconds);
+      }
+    });
+  }
+  void stopTimer() {
+    setState(() => countdownTimer!.cancel());
+  }
 
   @override
   void initState() {
@@ -34,6 +102,13 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
 
   @override
   Widget build(BuildContext context) {
+    String strDigits(int n) => n.toString().padLeft(2, '0');
+    final minutes = strDigits(myDuration.inMinutes.remainder(60));
+    final seconds = strDigits(myDuration.inSeconds.remainder(60));
+    final minutes5 = strDigits(myDuration5.inMinutes.remainder(60));
+    final seconds5 = strDigits(myDuration5.inSeconds.remainder(60));
+    final minutes30 = strDigits(myDuration30.inMinutes.remainder(60));
+    final seconds30 = strDigits(myDuration30.inSeconds.remainder(60));
     return Scaffold(
       key: scaffoldKey,
       body: GestureDetector(
@@ -78,15 +153,254 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
                           children: [
                             Column(
                               mainAxisSize: MainAxisSize.max,
-                              children: [],
+                              children: [
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                  'gk723keh' /* >Anasayfa< */,
+                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 20,
+                                    color: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),),
+                                SizedBox(
+                                  height: 50,
+                                ),
+                                // Step 8
+                                Text(
+                                  '$minutes:$seconds',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      fontSize: 45),
+                                ),
+                                SizedBox(height: 20),
+                                // Step 9
+                                ElevatedButton(
+                                  onPressed: startTimer,
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                    'gk723krt' /* >Anasayfa< */,
+                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                      primary: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                  ),
+                                ),
+                                // Step 10
+                                ElevatedButton(
+                                  onPressed: () {
+                                    if (countdownTimer == null || countdownTimer!.isActive) {
+                                      stopTimer();
+                                    }
+                                  },
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                    'gk723krr' /* >Anasayfa< */,
+                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),
+                                ),
+                                // Step 11
+                                ElevatedButton(
+                                    onPressed: () {
+                                      resetTimer();
+                                    },
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                      'gk723kre' /* >Anasayfa< */,
+                                    ),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 25,
+                                      ),
+                                    ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),)
+                              ],
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
-                              children: [],
+                              children: [
+                                Text(FFLocalizations.of(context).getText(
+                                  'gk723ker' /* >Anasayfa< */,
+                                ),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 20,
+                                  color: FlutterFlowTheme.of(context)
+                                      .tertiaryColor,
+                                ),),
+                                SizedBox(
+                                  height: 50,
+                                ),
+                                // Step 8
+                                Text(
+                                  '$minutes5:$seconds5',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      fontSize: 45),
+                                ),
+                                SizedBox(height: 20),
+                                // Step 9
+                                ElevatedButton(
+                                  onPressed: startTimer5,
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                    'gk723krt' /* >Anasayfa< */,
+                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),
+                                ),
+                                // Step 10
+                                ElevatedButton(
+                                  onPressed: () {
+                                    if (countdownTimer == null || countdownTimer!.isActive) {
+                                      stopTimer();
+                                    }
+                                  },
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                    'gk723krr' /* >Anasayfa< */,
+                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),
+                                ),
+                                // Step 11
+                                ElevatedButton(
+                                  onPressed: () {
+                                    resetTimer5();
+                                  },
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                    'gk723kre' /* >Anasayfa< */,
+                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),)
+                              ],
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
-                              children: [],
+                              children: [
+
+                                Text(FFLocalizations.of(context).getText(
+                                  'gk723ket' /* >Anasayfa< */,
+                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 20,
+                                    color: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),),
+                                SizedBox(
+                                  height: 50,
+                                ),
+                                // Step 8
+                                Text(
+                                  '$minutes30:$seconds30',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      fontSize: 45),
+                                ),
+                                SizedBox(height: 20),
+                                // Step 9
+                                ElevatedButton(
+                                  onPressed: startTimer30,
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                    'gk723krt' /* >Anasayfa< */,
+                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),
+                                ),
+                                // Step 10
+                                ElevatedButton(
+                                  onPressed: () {
+                                    if (countdownTimer == null || countdownTimer!.isActive) {
+                                      stopTimer();
+                                    }
+                                  },
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                    'gk723krr' /* >Anasayfa< */,
+                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),
+                                ),
+                                // Step 11
+                                ElevatedButton(
+                                  onPressed: () {
+                                    resetTimer30();
+                                  },
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                    'gk723kre' /* >Anasayfa< */,
+                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),)
+                              ],
                             ),
                           ],
                         ),

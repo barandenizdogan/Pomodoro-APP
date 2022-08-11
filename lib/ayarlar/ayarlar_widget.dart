@@ -126,7 +126,6 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 1,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
             image: DecorationImage(
               fit: BoxFit.cover,
               image: Image.asset(
@@ -138,17 +137,8 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 100,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0x3FDCC294), Color(0x0014181B)],
-                    stops: [0, 1],
-                    begin: AlignmentDirectional(0, -1),
-                    end: AlignmentDirectional(0, 1),
-                  ),
-                ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -175,13 +165,13 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
                       padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'jt6t3kw3' /* Ayarlar */,
+                          '02n8utot' /* Ayarlar */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Poppins',
-                              color: FlutterFlowTheme.of(context).alternate,
-                              fontSize: 24,
-                            ),
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).alternate,
+                          fontSize: 24,
+                        ),
                       ),
                     ),
                   ],
@@ -225,7 +215,7 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Column(
@@ -238,18 +228,18 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'xz33hqsx' /* Dil
-Ayarları */
+AyarlarÄ± */
                                             ,
                                           ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
                                               .subtitle2
                                               .override(
-                                                fontFamily: 'Poppins',
-                                                color: Colors.white,
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -260,8 +250,8 @@ Ayarları */
                                     child: FlutterFlowLanguageSelector(
                                       width: 200,
                                       backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .tertiaryColor,
+                                      FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
                                       dropdownIconColor: Color(0xFF14181B),
                                       borderRadius: 8,
                                       textStyle: TextStyle(
@@ -273,8 +263,8 @@ Ayarları */
                                       flagSize: 24,
                                       flagTextGap: 8,
                                       currentLanguage:
-                                          FFLocalizations.of(context)
-                                              .languageCode,
+                                      FFLocalizations.of(context)
+                                          .languageCode,
                                       languages: FFLocalizations.languages(),
                                       onChanged: (lang) =>
                                           setAppLanguage(context, lang),
@@ -330,18 +320,18 @@ Ayarları */
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'xjcyvmho' /* Uygulama
-Hakkında */
+HakkÄ±nda */
                                         ,
                                       ),
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .title1
                                           .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.normal,
-                                          ),
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -362,16 +352,26 @@ Hakkında */
                             [animationsMap['containerOnPageLoadAnimation2']!]),
                       ],
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Material(
-                            color: Colors.transparent,
-                            elevation: 3,
-                            shape: RoundedRectangleBorder(
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Material(
+                          color: Colors.transparent,
+                          elevation: 3,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(25),
+                              topLeft: Radius.circular(25),
+                              topRight: Radius.circular(0),
+                            ),
+                          ),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.44,
+                            height: 170,
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(0),
                                 bottomRight: Radius.circular(25),
@@ -379,186 +379,176 @@ Hakkında */
                                 topRight: Radius.circular(0),
                               ),
                             ),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.44,
-                              height: 170,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0),
-                                  bottomRight: Radius.circular(25),
-                                  topLeft: Radius.circular(25),
-                                  topRight: Radius.circular(0),
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12, 0, 12, 0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 8),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'kvvgps4c' /* İletişim */,
+                            child: Padding(
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 8),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'kvvgps4c' /* Ä°letiÅŸim */,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () async {
+                                      await launchURL(
+                                          'https://www.oorbs.studio/');
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              2, 0, 12, 0),
+                                          child: Icon(
+                                            Icons.http,
+                                            color: FlutterFlowTheme.of(context)
+                                                .tertiaryColor,
+                                            size: 25,
+                                          ),
                                         ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                    ),
-                                    InkWell(
-                                      onTap: () async {
-                                        await launchURL(
-                                            'https://www.oorbs.studio/');
-                                      },
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    2, 0, 12, 0),
-                                            child: Icon(
-                                              Icons.http,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiaryColor,
-                                              size: 25,
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '52ce53qy' /* www
-oorbs.studio */
-                                                ,
-                                              ),
-                                              textAlign: TextAlign.end,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiaryColor,
-                                                        fontSize: 12,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    InkWell(
-                                      onTap: () async {
-                                        await launchURL(
-                                            'mailto:app@oorbs.studio');
-                                      },
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 12, 4),
-                                            child: Icon(
-                                              Icons.email,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiaryColor,
-                                              size: 25,
-                                            ),
-                                          ),
-                                          Text(
+                                        Expanded(
+                                          child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'b390s0e8' /* e-mail */,
+                                              '52ce53qy' /* www
+oorbs.studio */
+                                              ,
                                             ),
                                             textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiaryColor,
-                                                  fontSize: 12,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    InkWell(
-                                      onTap: () async {
-                                        await launchURL(
-                                            'https://www.instagram.com/oorbs.studio/');
-                                      },
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    2, 0, 12, 0),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.instagram,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiaryColor,
-                                              size: 25,
+                                              fontFamily: 'Poppins',
+                                              color: FlutterFlowTheme.of(
+                                                  context)
+                                                  .tertiaryColor,
+                                              fontSize: 12,
                                             ),
                                           ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '331seris' /* Instagram */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiaryColor,
-                                                  fontSize: 12,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  InkWell(
+                                    onTap: () async {
+                                      await launchURL(
+                                          'mailto:app@oorbs.studio');
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 12, 4),
+                                          child: Icon(
+                                            Icons.email,
+                                            color: FlutterFlowTheme.of(context)
+                                                .tertiaryColor,
+                                            size: 25,
+                                          ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'b390s0e8' /* e-mail */,
+                                          ),
+                                          textAlign: TextAlign.end,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                            fontFamily: 'Poppins',
+                                            color:
+                                            FlutterFlowTheme.of(context)
+                                                .tertiaryColor,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () async {
+                                      await launchURL(
+                                          'https://www.instagram.com/oorbs.studio/');
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              2, 0, 12, 0),
+                                          child: FaIcon(
+                                            FontAwesomeIcons.instagram,
+                                            color: FlutterFlowTheme.of(context)
+                                                .tertiaryColor,
+                                            size: 25,
+                                          ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '331seris' /* Instagram */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                            fontFamily: 'Poppins',
+                                            color:
+                                            FlutterFlowTheme.of(context)
+                                                .tertiaryColor,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ).animated([
-                            animationsMap['containerOnPageLoadAnimation3']!
-                          ]),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 3,
-                              shape: RoundedRectangleBorder(
+                          ),
+                        ).animated(
+                            [animationsMap['containerOnPageLoadAnimation3']!]),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(25),
+                                bottomRight: Radius.circular(0),
+                                topLeft: Radius.circular(0),
+                                topRight: Radius.circular(25),
+                              ),
+                            ),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.44,
+                              height: 120,
+                              decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(25),
                                   bottomRight: Radius.circular(0),
@@ -566,145 +556,160 @@ oorbs.studio */
                                   topRight: Radius.circular(25),
                                 ),
                               ),
-                              child: Container(
-                                width: MediaQuery.of(context).size.width * 0.44,
-                                height: 120,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(25),
-                                    bottomRight: Radius.circular(0),
-                                    topLeft: Radius.circular(0),
-                                    topRight: Radius.circular(25),
-                                  ),
-                                ),
-                                child: InkWell(
-                                  onTap: () async {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            GelistiricihakkindaWidget(),
-                                      ),
-                                    );
-                                  },
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12, 0, 12, 8),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '3g2sjote' /* Geliştirici
-Hakkında */
-                                                ,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .title1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 20,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
+                              child: InkWell(
+                                onTap: () async {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          GelistiricihakkindaWidget(),
+                                    ),
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              12, 0, 12, 8),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '3g2sjote' /* GeliÅŸtirici
+HakkÄ±nda */
+                                              ,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .title1
+                                                .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.normal,
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 6, 12, 0),
-                                        child: FaIcon(
-                                          FontAwesomeIcons.code,
-                                          color: FlutterFlowTheme.of(context)
-                                              .tertiaryColor,
-                                          size: 25,
                                         ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12, 6, 12, 0),
+                                      child: FaIcon(
+                                        FontAwesomeIcons.code,
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                        size: 25,
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ).animated([
-                              animationsMap['containerOnPageLoadAnimation4']!
-                            ]),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 3,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(25),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(0),
-                      topRight: Radius.circular(25),
-                    ),
-                  ),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(25),
-                        bottomRight: Radius.circular(0),
-                        topLeft: Radius.circular(0),
-                        topRight: Radius.circular(25),
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'qcs7mfcm' /* Gelecek Güncellemelerde Neler ... */,
                             ),
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                          ),
+                          ).animated([
+                            animationsMap['containerOnPageLoadAnimation4']!
+                          ]),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
-                          child: Icon(
-                            Icons.accessibility_new,
-                            color: FlutterFlowTheme.of(context).tertiaryColor,
-                            size: 30,
-                          ),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(25),
+                                bottomRight: Radius.circular(0),
+                                topLeft: Radius.circular(0),
+                                topRight: Radius.circular(25),
+                              ),
+                            ),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.44,
+                              height: 75,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(25),
+                                  bottomRight: Radius.circular(0),
+                                  topLeft: Radius.circular(0),
+                                  topRight: Radius.circular(25),
+                                ),
+                              ),
+                              child: InkWell(
+                                onTap: () async {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'KullanÄ±cÄ± sistemi eklenecek, oluÅŸturduÄŸunuz takÄ±mlara kullanÄ±cÄ±larÄ± davet edebileceksiniz. HatÄ±rlatÄ±cÄ± sekmesi yolda, planladÄ±ÄŸÄ±nÄ±z gÃ¶revlerinizi not alabilir bunlara tarih bildirimi ekleyebileceksiniz. Ã‡ok yakÄ±nda sizlerle, Ã¼zerinde Ã§alÄ±ÅŸmaktayÄ±z. TÃ¼m destekleriniz iÃ§in teÅŸekkÃ¼rler... www.OORBS.Studio',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiaryColor,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 5000),
+                                      backgroundColor: Color(0x00000000),
+                                    ),
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              12, 0, 12, 0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'qyemisry' /* GÃ¼ncellemeler */,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .title1
+                                                .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12, 2, 12, 0),
+                                      child: Icon(
+                                        Icons.accessibility_new,
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                        size: 15,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ).animated([
+                            animationsMap['containerOnPageLoadAnimation5']!
+                          ]),
                         ),
                       ],
                     ),
-                  ),
-                ).animated([animationsMap['containerOnPageLoadAnimation5']!]),
+                  ],
+                ),
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -760,11 +765,11 @@ Hakkında */
                               'aki7l4hq' /* >Pomodoro< */,
                             ),
                             style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),
@@ -803,11 +808,11 @@ Hakkında */
                               'im8s6gb4' /* >Ayarlar< */,
                             ),
                             style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),

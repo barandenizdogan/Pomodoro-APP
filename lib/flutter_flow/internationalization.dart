@@ -56,6 +56,30 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tr': 'Pomodoro',
       'en': 'Pomodoro',
     },
+    'gk723keh': {
+      'tr': '>25 Dakika<',
+      'en': '>25 Minute<',
+    },
+    'gk723ker': {
+      'tr': '>Kısa Mola<',
+      'en': '>Short Brake<',
+    },
+    'gk723ket': {
+      'tr': '>Uzun Mola<',
+      'en': '>Long Brake<',
+    },
+    'gk723krt': {
+      'tr': 'Başla',
+      'en': 'Start',
+    },
+    'gk723krr': {
+      'tr': 'Duraklat',
+      'en': 'Stop',
+    },
+    'gk723kre': {
+      'tr': 'Sıfırla',
+      'en': 'Reset',
+    },
   },
   // gelistiricihakkinda
   {
