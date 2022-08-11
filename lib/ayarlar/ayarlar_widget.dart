@@ -135,7 +135,7 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
             ),
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
@@ -155,10 +155,20 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
                   children: [
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                      child: Icon(
-                        Icons.chevron_left_outlined,
-                        color: FlutterFlowTheme.of(context).alternate,
-                        size: 50,
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AnasayfaWidget(),
+                            ),
+                          );
+                        },
+                        child: Icon(
+                          Icons.chevron_left_outlined,
+                          color: FlutterFlowTheme.of(context).alternate,
+                          size: 50,
+                        ),
                       ),
                     ),
                     Padding(
@@ -213,7 +223,7 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
                                 ),
                               ),
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -257,7 +267,7 @@ Ayarları */
                                       textStyle: TextStyle(
                                         color: Color(0xFF0E0E0E),
                                         fontWeight: FontWeight.normal,
-                                        fontSize: 13,
+                                        fontSize: 10,
                                       ),
                                       hideFlags: false,
                                       flagSize: 24,
@@ -302,16 +312,15 @@ Ayarları */
                             ),
                             child: InkWell(
                               onTap: () async {
-                                await Navigator.pushAndRemoveUntil(
+                                await Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => AboutappWidget(),
                                   ),
-                                  (r) => false,
                                 );
                               },
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -386,7 +395,7 @@ Hakkında */
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     12, 0, 12, 0),
                                 child: Column(
-                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -570,17 +579,16 @@ oorbs.studio */
                                 ),
                                 child: InkWell(
                                   onTap: () async {
-                                    await Navigator.pushAndRemoveUntil(
+                                    await Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
                                             GelistiricihakkindaWidget(),
                                       ),
-                                      (r) => false,
                                     );
                                   },
                                   child: Column(
-                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
@@ -682,7 +690,7 @@ Hakkında */
                         );
                       },
                       child: Column(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -705,7 +713,7 @@ Hakkında */
                           ),
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 2, 12, 0),
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: Icon(
                               Icons.accessibility_new,
                               color: FlutterFlowTheme.of(context).tertiaryColor,
@@ -748,12 +756,11 @@ Hakkında */
                           size: 15,
                         ),
                         onPressed: () async {
-                          await Navigator.pushAndRemoveUntil(
+                          await Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => AnasayfaWidget(),
                             ),
-                            (r) => false,
                           );
                         },
                       ),
@@ -761,12 +768,11 @@ Hakkında */
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
                         child: InkWell(
                           onTap: () async {
-                            await Navigator.pushAndRemoveUntil(
+                            await Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => AnasayfaWidget(),
                               ),
-                              (r) => false,
                             );
                           },
                           child: Text(
@@ -793,12 +799,11 @@ Hakkında */
                           size: 15,
                         ),
                         onPressed: () async {
-                          await Navigator.pushAndRemoveUntil(
+                          await Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => AyarlarWidget(),
                             ),
-                            (r) => false,
                           );
                         },
                       ),
@@ -806,12 +811,11 @@ Hakkında */
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
                         child: InkWell(
                           onTap: () async {
-                            await Navigator.pushAndRemoveUntil(
+                            await Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => AyarlarWidget(),
                               ),
-                              (r) => false,
                             );
                           },
                           child: Text(

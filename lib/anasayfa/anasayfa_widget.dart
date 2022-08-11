@@ -57,7 +57,7 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
               FlutterFlowAdBanner(
                 width: MediaQuery.of(context).size.width,
                 height: 100,
-                showsTestAd: true,
+                showsTestAd: false,
                 androidAdUnitID: 'ca-app-pub-5455528914159263/2850363070',
               ),
               Container(
