@@ -673,55 +673,35 @@ Hakkında */
                         topRight: Radius.circular(25),
                       ),
                     ),
-                    child: InkWell(
-                      onTap: () async {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Kullanıcı sistemi eklenecek, oluşturduğunuz takımlara kullanıcıları davet edebileceksiniz. Görev sistemi yolda, yapmak istediğiniz planlarınızı tarihsel olarak barındırabileceksiniz, bunlar için bildirim ayarlayabilir önem sırası komutlayabileceksiniz.  Çok yakında sizlerle, üzerinde çalışmaktayız. Tüm destekleriniz için teşekkürler... www.OORBS.Studio',
-                              style: TextStyle(
-                                color:
-                                    FlutterFlowTheme.of(context).tertiaryColor,
-                              ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'qcs7mfcm' /* Gelecek Güncellemelerde Neler ... */,
                             ),
-                            duration: Duration(milliseconds: 4000),
-                            backgroundColor: Color(0x9866573F),
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context).title1.override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                ),
                           ),
-                        );
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'qcs7mfcm' /* Gelecek Güncellemelerde Neler ... */,
-                              ),
-                              textAlign: TextAlign.center,
-                              style:
-                                  FlutterFlowTheme.of(context).title1.override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                            ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                          child: Icon(
+                            Icons.accessibility_new,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
+                            size: 30,
                           ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
-                            child: Icon(
-                              Icons.accessibility_new,
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                              size: 30,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ).animated([animationsMap['containerOnPageLoadAnimation5']!]),
