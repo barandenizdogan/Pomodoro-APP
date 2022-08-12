@@ -165,7 +165,7 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
                       padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          '02n8utot' /* Ayarlar */,
+                          'jt6t3kw3' /* Ayarlar */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Poppins',
@@ -178,7 +178,7 @@ class _AyarlarWidgetState extends State<AyarlarWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 60, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -645,8 +645,9 @@ HakkÄ±nda */
                                 onTap: () async {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
+                                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 50),
                                       content: Text(
-                                        'KullanÄ±cÄ± sistemi eklenecek, oluÅŸturduÄŸunuz takÄ±mlara kullanÄ±cÄ±larÄ± davet edebileceksiniz. HatÄ±rlatÄ±cÄ± sekmesi yolda, planladÄ±ÄŸÄ±nÄ±z gÃ¶revlerinizi not alabilir bunlara tarih bildirimi ekleyebileceksiniz. Ã‡ok yakÄ±nda sizlerle, Ã¼zerinde Ã§alÄ±ÅŸmaktayÄ±z. TÃ¼m destekleriniz iÃ§in teÅŸekkÃ¼rler... www.OORBS.Studio',
+                                        'Kullanıcı sistemi eklenecek, oluşturduğunuz takımlara kullanıcıları davet edebileceksiniz. Hatırlatıcı sekmesi yolda, planladığınız görevlerinizi not alabilip bunlara tarih bildirimi ekleyebileceksiniz. Çok yakında sizlerle, üzerinde çalışmaktayız. Tüm destekleriniz için teşekkürler...\n www.OORBS.Studio',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .tertiaryColor,
@@ -673,7 +674,7 @@ HakkÄ±nda */
                                               12, 0, 12, 0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'qyemisry' /* GÃ¼ncellemeler */,
+                                              'qcs7mfcm' /* GÃ¼ncellemeler */,
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
@@ -723,9 +724,9 @@ HakkÄ±nda */
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 12),
+                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 10),
                   child: Row(
-                    mainAxisSize: MainAxisSize.max,
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [

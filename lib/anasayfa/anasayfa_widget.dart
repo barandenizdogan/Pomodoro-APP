@@ -1,18 +1,21 @@
 import 'dart:async';
-
+import 'dart:io';
+import 'package:rxdart/rxdart.dart';
+import '../notification_service.dart';
 import '../ayarlar/ayarlar_widget.dart';
 import '../flutter_flow/flutter_flow_ad_banner.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../custom_code/actions/index.dart' as actions;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:pomodoro/notification_service.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
 class AnasayfaWidget extends StatefulWidget {
   const AnasayfaWidget({Key? key}) : super(key: key);
@@ -29,32 +32,42 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
   Duration myDuration5 = Duration(minutes: 5);
   Duration myDuration30 = Duration(minutes: 30);
 
-
-  void startTimer() {
-    countdownTimer =
-        Timer.periodic(Duration(seconds: 1), (_) => setCountDown());
+  Future <void> startTimer() async {
+    countdownTimer = Timer.periodic(Duration(seconds: 1), (_) => setCountDown());
+        await Future.delayed(const Duration(seconds: 5));
+        showNotification();
   }
-  void startTimer5() {
+  Future <void> startTimer5() async {
     countdownTimer =
         Timer.periodic(Duration(seconds: 1), (_) => setCountDown5());
+        await Future.delayed(const Duration(minutes: 5));
+        showNotification();
   }
-  void startTimer30() {
+  Future <void> startTimer30() async {
     countdownTimer =
         Timer.periodic(Duration(seconds: 1), (_) => setCountDown30());
+        await Future.delayed(const Duration(minutes: 30));
+        showNotification();
   }
-  void resetTimer() {
+  Future <void> resetTimer() async {
     stopTimer();
     setState(() => myDuration = Duration(minutes: 25));
+    await Future.delayed(const Duration(seconds: 0));
+    cancelAll();
   }
-  void resetTimer5() {
+  Future <void> resetTimer5() async {
     stopTimer();
     setState(() => myDuration5 = Duration(minutes: 5));
+    await Future.delayed(const Duration(seconds: 0));
+    cancelAll();
   }
-  void resetTimer30() {
+  Future <void> resetTimer30() async {
     stopTimer();
     setState(() => myDuration30 = Duration(minutes: 30));
+    await Future.delayed(const Duration(seconds: 0));
+    cancelAll();
   }
-  void setCountDown() {
+  Future <void> setCountDown() async {
     final reduceSecondsBy = 1;
     setState(() {
       final seconds = myDuration.inSeconds - reduceSecondsBy;
@@ -65,7 +78,7 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
       }
     });
   }
-  void setCountDown5() {
+  Future <void> setCountDown5() async {
     final reduceSecondsBy = 1;
     setState(() {
       final seconds = myDuration5.inSeconds - reduceSecondsBy;
@@ -76,7 +89,7 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
       }
     });
   }
-  void setCountDown30() {
+  Future <void> setCountDown30() async {
     final reduceSecondsBy = 1;
     setState(() {
       final seconds = myDuration30.inSeconds - reduceSecondsBy;
@@ -87,8 +100,9 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
       }
     });
   }
-  void stopTimer() {
+  Future <void> stopTimer() async {
     setState(() => countdownTimer!.cancel());
+    cancelAll();
   }
 
   @override
@@ -164,10 +178,7 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .tertiaryColor,
                                   ),),
-                                SizedBox(
-                                  height: 50,
-                                ),
-                                // Step 8
+                                SizedBox(height: 30),
                                 Text(
                                   '$minutes:$seconds',
                                   style: TextStyle(
@@ -179,7 +190,9 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
                                 SizedBox(height: 20),
                                 // Step 9
                                 ElevatedButton(
-                                  onPressed: startTimer,
+                                  onPressed: () async {
+                                      startTimer();
+                                      },
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                     'gk723krt' /* >Anasayfa< */,
@@ -217,7 +230,7 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
                                 ),
                                 // Step 11
                                 ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: () async {
                                       resetTimer();
                                     },
                                     child: Text(
@@ -232,7 +245,16 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
                                   style: ElevatedButton.styleFrom(
                                     primary: FlutterFlowTheme.of(context)
                                         .tertiaryColor,
-                                  ),)
+                                  ),),
+                                SizedBox(height: 30),
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                  'pfsqntze' /* >Anasayfa< */),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.white,
+                                      fontSize: 10),
+                                ),
                               ],
                             ),
                             Column(
@@ -248,7 +270,7 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
                                       .tertiaryColor,
                                 ),),
                                 SizedBox(
-                                  height: 50,
+                                  height: 30,
                                 ),
                                 // Step 8
                                 Text(
@@ -262,7 +284,11 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
                                 SizedBox(height: 20),
                                 // Step 9
                                 ElevatedButton(
-                                  onPressed: startTimer5,
+                                  onPressed: () async {
+                                    startTimer5();
+                                    await Future.delayed(const Duration(minutes: 5));
+                                    showNotification();
+                                  },
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                     'gk723krt' /* >Anasayfa< */,
@@ -332,7 +358,7 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
                                         .tertiaryColor,
                                   ),),
                                 SizedBox(
-                                  height: 50,
+                                  height: 30,
                                 ),
                                 // Step 8
                                 Text(
@@ -346,7 +372,11 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
                                 SizedBox(height: 20),
                                 // Step 9
                                 ElevatedButton(
-                                  onPressed: startTimer30,
+                                  onPressed: () async {
+                                    startTimer30();
+                                    await Future.delayed(const Duration(minutes: 30));
+                                    showNotification();
+                                  },
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                     'gk723krt' /* >Anasayfa< */,

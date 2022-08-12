@@ -80,6 +80,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tr': 'Sıfırla',
       'en': 'Reset',
     },
+    'pfsqntze': {
+      'tr': 'Sağa kaydırarak diğer seçeneklere ulaşabilirsiniz.',
+      'en': 'Swipe right to see other functions.',
+    },
   },
   // gelistiricihakkinda
   {
@@ -144,8 +148,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'About\nDeveloper',
     },
     'qcs7mfcm': {
-      'tr': 'Gelecek Güncellemelerde Neler Var?',
-      'en': 'What\'s in Future Updates?',
+      'tr': 'Güncellemeler',
+      'en': 'Updates',
     },
     'aki7l4hq': {
       'tr': '>Pomodoro<',
