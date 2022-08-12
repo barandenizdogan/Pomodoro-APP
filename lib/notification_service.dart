@@ -14,7 +14,7 @@ class NotificationService {
 
   Future<void> init() async {
     final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-    final AndroidInitializationSettings initializationSettingsAndroid =
+    const AndroidInitializationSettings initializationSettingsAndroid =
     AndroidInitializationSettings('app_icon');
 
     final InitializationSettings initializationSettings =
@@ -39,19 +39,20 @@ const AndroidNotificationDetails androidPlatformChannelSpecifics = AndroidNotifi
 Future <void> showNotification() async {
   var androidChannelSpecifics = AndroidNotificationDetails(
     'CHANNEL_ID',
-    'CHANNEL_NAME',
+    'POMODORO',
+    icon: 'app_icon',
     importance: Importance.max,
     priority: Priority.high,
+    sound: RawResourceAndroidNotificationSound('luna_notification'),
     playSound: true,
-    timeoutAfter: 5000,
     styleInformation: DefaultStyleInformation(true, true),
   );
   var platformChannelSpecifics =
   NotificationDetails(android: androidChannelSpecifics);
   await flutterLocalNotificationsPlugin.show(
     0,
-    'Pomodoro Alert', //Duzenlenecek olan baslik
-    'Pomodoro Timer Done', //duzenlenecek olan mesaj
+    '>Pomodoro Alert<', //Duzenlenecek olan baslik
+    'Pomodoro Timer Done!!', //Duzenlenecek olan mesaj
     platformChannelSpecifics,
   );
 }

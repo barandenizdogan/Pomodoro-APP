@@ -40,7 +40,7 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
       _isCounting = false;
     });
     countdownTimer = Timer.periodic(Duration(seconds: 1), (_) => setCountDown());
-    myCancelableFuture = Timer.periodic(Duration(minutes: 25), (_) => showNotification());
+    myCancelableFuture = Timer.periodic(Duration(seconds: 5), (_) => showNotification());
   }
   Future <void> startTimer5() async {
     setState(() {
@@ -541,3 +541,5 @@ class _AnasayfaWidgetState extends State<AnasayfaWidget> {
     );
   }
 }
+
+

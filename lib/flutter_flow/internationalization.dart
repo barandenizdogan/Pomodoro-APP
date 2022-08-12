@@ -42,6 +42,19 @@ class FFLocalizationsDelegate extends LocalizationsDelegate<FFLocalizations> {
 }
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
+  // Notification
+  {
+
+    'pfsqntee': {
+    'tr': '>Pomodoro Uyarısı<',
+    'en': '>Pomodoro Alert<',
+  },
+    'pfsqntaa': {
+      'tr': '>Pomodoro Süren Doldu!<',
+      'en': '>Pomodoro TImer Done!<',
+    },
+
+  },
   // Anasayfa
   {
     'pfsqntzr': {
